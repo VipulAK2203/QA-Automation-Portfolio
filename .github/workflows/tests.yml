@@ -1,0 +1,30 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.13"
+
+    - name: Install Dependencies
+      run: |
+        pip install -r Playwright_framework/requirements.txt
+
+    - name: Install Playwright Browsers
+      run: playwright install
+
+    - name: Run Tests
+      run: |
+        pytest Playwright_framework/tests -n auto -reruns 1 --html=report.html --self-contained-html
