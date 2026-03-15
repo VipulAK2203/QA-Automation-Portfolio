@@ -27,4 +27,4 @@ jobs:
 
     - name: Run Tests
       run: |
-        pytest Playwright_framework/tests -n auto -reruns 1 --html=report.html --self-contained-html
+        pytest tests -n auto -reruns 1 --html=report.html --self-contained-html
