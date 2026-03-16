@@ -24,3 +24,6 @@ class LoginPage:
 
     def is_title_correct(self, title):
         return self.page.title() == title
+
+    def error_message(self):
+        return self.page.locator(".oxd-alert-content-text").inner_text()

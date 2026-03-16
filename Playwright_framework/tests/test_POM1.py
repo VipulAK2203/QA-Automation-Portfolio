@@ -25,3 +25,11 @@ def test_login_check(page, app_url, username, password, expected):
         assert login.is_title_correct(expected)
 
 
+def test_invalid_login(page, app_url):
+    login =LoginPage(page)
+    login.open(app_url)
+    time.sleep(10)
+    login.login("User", "Pass")
+    time.sleep(5)
+    error = login.error_message()
+    assert "Invalid credentials" in error
