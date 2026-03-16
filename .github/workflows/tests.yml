@@ -27,5 +27,5 @@ jobs:
 
     - name: Run Tests
       run: |
-        cd \Playwright_framework\tests
+        cd Playwright_framework
         pytest tests -n auto -reruns 1 --html=report.html --self-contained-html
